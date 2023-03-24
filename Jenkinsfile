@@ -9,7 +9,8 @@ pipeline {
                 sh 'composer install'
                 sh 'cp .env.example .env'
                 sh 'php artisan key:generate'
-                // sh 'npm run dev'
+                sh 'npm install && npm run dev'
+               
             }
         }
 
@@ -20,7 +21,7 @@ pipeline {
                 sh 'php artisan test'
             }
         }
-        
+
         stage('Deploy') {
             steps {
                 sh 'echo deploying'
