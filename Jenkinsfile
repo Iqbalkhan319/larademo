@@ -4,12 +4,15 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo building'
+                sh 'composer install'
+                sh 'npm install'
+                sh 'npm run build'
+                // and other necessary commands to compile your assets
             }
         }
         stage('Test') {
             steps {
-                sh 'echo testing'
+                sh 'php artisan test'
             }
         }
         
