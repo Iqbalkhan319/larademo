@@ -18,7 +18,7 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                sh 'echo deploying'
+                sh 'ssh deploy@192.168.2.40 "deploy" '
             }
         }
     }
