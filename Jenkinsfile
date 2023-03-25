@@ -18,7 +18,7 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                sh 'ssh deploy@192.168.2.40 -o StrictHostKeyChecking=no "deploy" '
+                sh 'ssh deploy@192.168.2.40 -o StrictHostKeyChecking=no "bash /var/www/larademo/scripts/deploy.sh" '
             }
         }
     }
