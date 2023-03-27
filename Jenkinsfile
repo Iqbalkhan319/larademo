@@ -16,9 +16,15 @@ pipeline {
             }
         }
         
-        stage('Deploy') {
+        stage('Deploy to staging') {
             steps {
                 sh 'ssh deploy@192.168.2.40 -o StrictHostKeyChecking=no "bash /var/www/larademo/scripts/deploy.sh" '
+            }
+        }
+
+        stage('Deploy to production') {
+            steps {
+                sh 'ssh dare@165.22.235.232 -o StrictHostKeyChecking=no "bash /var/www/larademo/scripts/deploy.sh" '
             }
         }
     }
