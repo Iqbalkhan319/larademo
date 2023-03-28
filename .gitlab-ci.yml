@@ -9,6 +9,9 @@ build:
     - digitalocean
   script:
     - echo "Building..."
+    - cp .env.example .env
+    - composer install
+    - npm install
 
 test:
   stage: test
@@ -16,6 +19,10 @@ test:
     - digitalocean
   script:
     - echo "testing..."
+    - cp .env.example .env
+    - php artisan key:generate
+    - npm run build
+    - php artisan test
 
 deploy:
    stage: deploy
@@ -23,3 +30,4 @@ deploy:
      - digitalocean
    script:
     - echo "deploying..."
+    - ssh dare@165.22.235.232 -o StrictHostKeyChecking=no 'bash /var/www/larademo/scripts/deploy.sh'
