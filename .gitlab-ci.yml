@@ -15,7 +15,7 @@ test:
   tags:
     - digitalocean
   script:
-    - echo "testing..."
+    - echo "testing.."
 
 
 deploy:
