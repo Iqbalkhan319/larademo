@@ -1,6 +1,7 @@
-GIT_STRATEGY: fetch
-GIT_CLEAN_FLAGS: none
-
+variables:
+  GIT_STRATEGY: fetch
+  GIT_CLEAN_FLAGS: none
+  
 stages:
   - build
   - test
@@ -19,7 +20,6 @@ test:
     - digitalocean
   script:
     - echo "testing.."
-
 
 deploy:
    stage: deploy
