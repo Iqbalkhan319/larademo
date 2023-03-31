@@ -1,7 +1,7 @@
 variables:
   GIT_STRATEGY: fetch
   GIT_CLEAN_FLAGS: none
-  
+
 stages:
   - build
   - test
@@ -13,6 +13,11 @@ build:
     - digitalocean
   script:
     - echo "Building..."
+    - cp .env.example .env
+    - composer install
+    - php artisan key:generate
+    - npm install
+    - npm run build
 
 test:
   stage: test
@@ -20,6 +25,7 @@ test:
     - digitalocean
   script:
     - echo "testing.."
+    - php artisan test
 
 deploy:
    stage: deploy
