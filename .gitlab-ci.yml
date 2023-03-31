@@ -23,4 +23,4 @@ deploy:
    tags:
     - digitalocean
    script:
-    - echo "deploying..."
+    - echo "deploying.."
