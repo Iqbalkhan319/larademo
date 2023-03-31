@@ -1,3 +1,6 @@
+GIT_STRATEGY: fetch
+GIT_CLEAN_FLAGS: none
+
 stages:
   - build
   - test
