@@ -27,10 +27,23 @@ test:
     - echo "testing.."
     - php artisan test
 
-deploy:
+deploy_staging:
+   stage: deploy
+   tags:
+     - digitalocean
+   script:
+     - echo "deploying to staging enviroment"
+    # - ssh deploy@staging_server_ip -o StrictHostKeyChecking=no 'bash /path/to/the/deploy _scripts'
+   environment:
+     name: staging
+
+deploy_production:
    stage: deploy
    tags:
     - digitalocean
    script:
     - echo "deploying.."
     - ssh dare@165.22.235.232 -o StrictHostKeyChecking=no 'bash /var/www/larademo/scripts/deploy.sh'
+   environmnent:
+    name: production
+  when: manual
